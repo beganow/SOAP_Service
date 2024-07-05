@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:smp="http://smp.ws.uz/" targetNamespace="http://smp.ws.uz/" elementFormDefault="qualified">
+    <xs:element name="sendPayment">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bank" type="smp:Bank"/>
+                <xs:element name="payment" type="smp:Payment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Bank">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Payment">
+        <xs:sequence>
+            <xs:element name="amount" type="smp:Amount"/>
+            <xs:element name="document" type="smp:Document"/>
+            <xs:element name="budget" type="smp:Budget"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Amount">
+        <xs:sequence>
+            <xs:element name="currency" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Document">
+        <xs:sequence>
+            <xs:element name="docN" type="xs:string"/>
+            <xs:element name="docD" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Budget">
+        <xs:sequence>
+            <xs:element name="budgetIncome" type="xs:string"/>
+            <xs:element name="budgetAccount" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
